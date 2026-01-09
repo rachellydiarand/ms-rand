@@ -450,3 +450,26 @@ p {
 	right: 0;
 	border: 3px solid #73AD21;
 }
+
+#sidebar {
+	position: fixed;
+	width: 26px;
+	height: 100%;
+	background-color: #efefef;
+}
+
+.sidebarElement {
+	width: 100%;
+	padding: 0 0 4px 0;
+}
+
+.sidebarOutsideContent {
+	position: relative;
+	margin-left: 26px;
+	border-left: 1px solid black;
+}
+
+.sidebarButton {
+	cursor: pointer;
+}
+

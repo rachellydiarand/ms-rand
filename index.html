@@ -16,13 +16,39 @@
 	
 	<link rel="icon" href="favicon.ico?" type="image/x-icon"></link>
 	
-	<link rel="stylesheet" type="text/css" href="clients.css?v=5"></link>
+	<link rel="stylesheet" type="text/css" href="clients.css?v=8"></link>
 	
 	<script type="text/javascript" src="/code/js/reversePostOrder.js"></script>
+	
+	<script type="text/javascript">
+		function sidebarClick(n) {
+			if(n == 'home') {
+				window.document.location.href = "https://github.com/rachellydiarand";
+			}
+			if(n == 'top') {
+				scrollTo(0, 0);
+			}
+			if(n == 'menu') {
+				var elem = document.getElementById("otherPages");
+				elem.scrollIntoView('smooth');
+			}
+			if(n == 'hotWater') {
+				var elem = document.getElementById("hotWater");
+				elem.scrollIntoView('smooth');
+			}
+		}
+	</script>
 	
 </head>
 
 <body class="consolas">
+	<div id="sidebar">
+		<img src="images/rachel4.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('home');" />
+		<img src="images/moth_picture_viewer_image_paste_2026-01-08_18_20_06.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('top');" />
+		<img src="images/menu89.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('menu');" />
+		<img src="images/hotWater24.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('hotWater');" />
+	</div>
+	<div class="sidebarOutsideContent">
 
 <div class="floatLeft">
 <!--<img src="images/rachel_lydia_rand_2025.png" class="w300 imageBorder" />-->
@@ -243,13 +269,20 @@ trumpet<br><br>
 <br />
 
 
-This transgender flag grew to be a big deal with me.  <u>I now see this as the world flag</u>.<br>
-<br>
-It's not just about transgenderism.  In fact, it may not have much to do with transgenderism at all.  It doesn't represent nations.<br>
-<br>
-<br>
-"I don't care what it was designed to do.  I care about what it can do." - Ed Harris in <i>Apollo 13</i><br>
-<br></div>
+This transgender flag grew to be a big deal with me.  <u>I now see this as the world flag</u>.
+<br>
+
+<br>
+It's not just about transgenderism.  In fact, it may not have much to do with transgenderism at all.  It doesn't represent nations.
+<br>
+
+<br>
+
+<br>
+"I don't care what it was designed to do.  I care about what it can do." - Ed Harris in <i>Apollo 13</i>
+<br>
+
+<br></div>
 
 <div class='post'>
 <h4>2026-01-05 &nbsp;&nbsp;&nbsp;07:41:17 AM</h4>
@@ -1013,6 +1046,7 @@ OK, now for a little bit of politics....
 <br></div>
 
 <div class='post'>
+<div id="hotWater"></div>
 <h4>2025-10-03 &nbsp;&nbsp;&nbsp;08:34:44 AM</h4>
 These images are pointing to problems with housing and more importantly, transportation and energy.
 <br>
@@ -1093,6 +1127,8 @@ Q: <i>Is it just a joke that my AA grandsponsor is a maple syrup farmer and I ha
 
 a joke?<br>
 
+<div id="otherPages"></div>
+
 <hr />
 <br />
 <b>other pages:</b><br />
@@ -1157,5 +1193,12 @@ All content created by Rachel Lydia Rand except for a couple reasonable referenc
 
 <br><br>
 
+	<div id="sidebar">
+		<img src="images/rachel4.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('home');" />
+		<img src="images/moth_picture_viewer_image_paste_2026-01-08_18_20_06.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('top');" />
+		<img src="images/menu89.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('menu');" />
+		<img src="images/hotWater24.png" class="sidebarElement sidebarButton" onclick="javascript: sidebarClick('hotWater');" />
+	</div>
+	<div class="sidebarOutsideContent">
 </body>
 </html>
