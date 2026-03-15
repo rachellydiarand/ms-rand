@@ -4,7 +4,7 @@ Politics: https://rachellydiarand.github.io/ms-rand
 
 Blog: https://rachellydiarand.github.io/miri
 
-Music: Politics: https://rachellydiarand.github.io/music
+Music: https://rachellydiarand.github.io/music
 
 Q: Can I attach an image here?
 
