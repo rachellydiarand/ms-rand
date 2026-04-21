@@ -103,6 +103,7 @@
 			for(var a = 0; a < searchResults.length; a++) {
 				if(htmlStr != "") {
 					htmlStr += "<br />-------------------------<br />" + (a + 1) + ".<br />";
+					document.getElementById("resultCount").innerHTML = "search result count = " + searchResults.length;
 				}
 				var keys = Object.keys(searchResults[a]);
 				for(var b = 0; b < keys.length; b++) {
@@ -153,6 +154,7 @@
 	Party: <input type="text" id="party" style="width: 200px;" onkeyup="javascript: search();" /><br />
 	<input type="checkbox" id="hasFinancialData" onclick="javascript: search();" /> <label for="hasFinancialData">Has Financial Data</label><br />
 	<input type="checkbox" id="wasQualified" onclick="javascript: search();" /> <label for="wasQualified">Was FEC Qualified</label><br />
+	<div id="resultCount" style="margin-top: 4px; padding: 4px; border: 1px solid #efefef;"></div>
 </div>
 
 <div id="data" style="margin-top: 120px;width: 600px; height: 80%; overflow: auto; scrollbar-y: show;"></div>
