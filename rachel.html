@@ -20,6 +20,30 @@
 	
 	<script type="text/javascript" src="/code/js/reversePostOrder.js"></script>
 	
+	<script type="text/javascript">
+		function computeRazorBladeRefills(blade1id, blade2id, resultId) {
+			var blade1 = document.getElementById(blade1id).value;
+			var blade2 = document.getElementById(blade2id).value;
+			var blade1bladesPerYear = 0;
+			var blade2bladesPerYear = 0;
+			if(blade1 != "" && !isNaN(blade1)) blade1bladesPerYear = 365 / blade1;
+			if(blade2 != "" && !isNaN(blade2)) blade2bladesPerYear = 365 / blade2;
+			if(blade1 == "0") blade1bladesPerYear = 0;
+			if(blade2 == "0") blade2bladesPerYear = 0;
+			
+			var resultStr = "You use " + Math.ceil(blade1bladesPerYear + blade2bladesPerYear) + " blades per year.\r\n\r\nYou need to buy " + Math.ceil((blade1bladesPerYear + blade2bladesPerYear)/ 12) + " blades each month to not run out.";
+			var resultElem = document.getElementById(resultId);
+			if(resultElem == null) {
+				alert(resultStr);
+			}
+			else {
+				resultStr = "You use <b>" + Math.ceil(blade1bladesPerYear + blade2bladesPerYear) + " blades</b> per <u>year</u>.<br><br>You need to buy <b>" + Math.ceil((blade1bladesPerYear + blade2bladesPerYear)/ 12) + " blades</b> each <u>month</u> to not run out.";
+				resultElem.innerHTML = "<br /><br />" + resultStr;
+			
+			}
+		}
+	</script>
+	
 </head>
 
 <body class="consolas">
@@ -45,6 +69,18 @@ Q: Interested in making a clothing contribution to me? <a href="culture.html">Ra
 <div id="beeLog">
 
 <!-- log -->
+
+<div class='post'>
+<h4>2026-04-21 &nbsp;&nbsp;&nbsp;21:27:55 PM</h4>
+Here is my little razor blade replacement calculator.  I'm using two same model razor blade handles, one in the bathtub and one in the sink.  I've got them on two slightly different replacement schedules and I'm using my GO board with the black and white stones to mark the days off.<br>
+<br>
+<div id="razorCalculator" style="padding: 4px; border: 1px solid #666;max-width: 600px;"><b>Razor Blade replacement rate (in days)</b><br>
+<br>
+Blade 1: <input type="text" id="blade1" inputmode="numeric" /><br>
+Blade 2: <input type="text" id="blade2" inputmode="numeric" style="margin-top: 4px;" /><br>
+<button type="button" onclick="javascript: computeRazorBladeRefills('blade1', 'blade2', 'bladeReplacementResult');" style="margin-top: 8px;background-color: green; color: white;cursor: pointer;"><b>GO!!</b></button><span id="bladeReplacementResult"></span><br>
+</div><br>
+<br></div>
 
 <div class='post'>
 <h4>2026-02-02 &nbsp;&nbsp;&nbsp;15:42:08 PM</h4>
@@ -91,7 +127,7 @@ I hope to experience that again before I die.  I have no idea how long I will la
 
 <div class='post'>
 <h4>2025-12-26 &nbsp;&nbsp;&nbsp;06:48:12 AM</h4>
-<div id="transgenderism">
+<div id="transgenderism"></div>
 <br>
  =^.^=
 <br>
