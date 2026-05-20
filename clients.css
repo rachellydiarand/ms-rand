@@ -465,11 +465,16 @@ p {
 
 .sidebarOutsideContent {
 	position: relative;
-	margin-left: 26px;
+	margin-left: 32px;
+	padding-left: 6px;
 	border-left: 1px solid black;
 }
 
 .sidebarButton {
 	cursor: pointer;
+}
+
+.footer {
+	padding-left: 38px;
 }
 
