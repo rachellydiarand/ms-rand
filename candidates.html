@@ -58,6 +58,17 @@
 			return document.getElementById(id).checked;
 		}
 		
+		function compareCandidate(candidateName) {
+			var array = candidateName.split(" ");
+			var mutatedCandidateName = array.join("+");
+			var url = 'https://google.com/search?q=Rachel+Lydia+Rand+compare+to+' + mutatedCandidateName;
+			//url += '+presidential+candidate';
+			//alert(url);
+			
+			window.open(url, '_rlr');
+			//window.location.href = url;
+		}
+		
 		function internetSearchCandidate(candidateName) {
 			//alert(candidateName);
 			
@@ -115,13 +126,14 @@
 				
 				// buttons to search this candidate on the internet:
 				// add an internet search button on each candidate
+				var googleCompareButton = '<button type="button" onclick="javascript: compareCandidate(' + "'" + candidateName + "'" + ');" style="font-size: 12px;">Compare w/Rachel</button>';
 				var googleButton = '<button type="button" onclick="javascript: internetSearchCandidate(' + "'" + candidateName + "'" + ');" style="font-size: 12px;">Search Google</button>';
 				// and an open secrets search
 				var openSecretsSearchButton = '<button type="button" onclick="javascript: openSecretsSearchCandidate(' + "'" + candidateName + "'" + ');" style="font-size: 12px;">Search OpenSecrets</button>';
 				var fecSearchButton = '<button type="button" onclick="javascript: fecSearch(' + "'" + candidateName + "'" + ');" style="font-size: 12px;">Search FEC.gov</button>';
 				
 				
-				htmlStr += "<br />" + googleButton + " | " + openSecretsSearchButton + " | " + fecSearchButton + "<br />";
+				htmlStr += "<br />" + googleCompareButton + " | " + googleButton + " | " + openSecretsSearchButton + " | " + fecSearchButton + "<br />";
 			}
 			var elem = document.getElementById("data");
 			elem.innerHTML = htmlStr;
@@ -153,7 +165,7 @@
 	
 	Name: <input type="text" id="candidateName" style="width: 200px;" onkeyup="javascript: search();" /><br />
 	Party: <input type="text" id="party" style="width: 200px;" onkeyup="javascript: search();" /><br />
-	<input type="checkbox" id="hasFinancialData" onclick="javascript: search();" /> <label for="hasFinancialData">Has Financial Data</label><br />
+	<input type="checkbox" id="hasFinancialData" onclick="javascript: search();" value="1" checked="checked" /> <label for="hasFinancialData">Has Financial Data</label><br />
 	<input type="checkbox" id="wasQualified" onclick="javascript: search();" /> <label for="wasQualified">Was FEC Qualified</label><br />
 	<div id="resultCount" style="margin-top: 4px; padding: 4px; border: 1px solid #efefef;"></div>
 </div>
