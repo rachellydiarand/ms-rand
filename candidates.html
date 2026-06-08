@@ -111,12 +111,9 @@
 		
 		function refreshDisplay()
 		{
-			var htmlStr = "search result count = " + searchResults.length + "<br /><br />";
+			document.getElementById("resultCount").innerHTML = "search result count = " + searchResults.length + "<br /><br />";
+			var htmlStr = "";
 			for(var a = 0; a < searchResults.length; a++) {
-				if(htmlStr != "") {
-					htmlStr += "<br />-------------------------<br />" + (a + 1) + ".<br />";
-					document.getElementById("resultCount").innerHTML = "search result count = " + searchResults.length;
-				}
 				var keys = Object.keys(searchResults[a]);
 				for(var b = 0; b < keys.length; b++) {
 					htmlStr += "<br />" + keys[b] + " = " + searchResults[a][keys[b]];
@@ -142,15 +139,31 @@
 		function search() {
 			var candidateName = document.getElementById("candidateName").value.toLowerCase();
 			var party = document.getElementById("party").value.toLowerCase();
-			var checkHasData = isChecked("hasFinancialData");
+			//var checkHasData = isChecked("hasFinancialData");
 			var checkWasQualified = isChecked("wasQualified");
 			
 			var tempArray = new Array();
 			for(var a = 0; a < candidates.length; a++) {
-				if(candidates[a].party.toLowerCase().indexOf(party) > -1 && candidates[a].name.toLowerCase().indexOf(candidateName) > -1) {
-					if(checkHasData && !checkHasProperty(candidates[a], "disbursements")) continue;
-					if(checkWasQualified && !checkPropertyValue(candidates[a], "wasQualified", "true")) continue; 
-					tempArray.push(candidates[a]);
+				if((candidates[a].party.toLowerCase().indexOf(party) > -1 && candidates[a].name.toLowerCase().indexOf(candidateName) > -1)) {
+					if(isChecked("wasQualified") && !(candidates[a].receipts > 4999 || candidates[a].disbursements > 4999)) continue; 
+					// party
+					//alert("hit");
+					var partyQualified = false;
+					var partyElem = document.getElementById("party");
+					if(!isChecked("partyRep") && !isChecked("partyDem") && partyElem.value == "") partyQualified = true;
+					if(!isChecked("partyRep") && !isChecked("partyDem")) {
+						
+						if(candidates[a].party.toLowerCase().indexOf(partyElem.value.toLowerCase()) > -1) partyQualified = true;
+					}
+					if(isChecked("partyRep")) {
+						if(candidates[a].party.substring(0, 3).toLowerCase() == "rep") partyQualified = true;
+					}
+					if(isChecked("partyDem")) {
+						if(candidates[a].party.substring(0, 3).toLowerCase() == "dem") partyQualified = true;
+					}
+					console.log(candidates[a].name + " : " +partyQualified);
+					if(partyQualified) tempArray.push(candidates[a]);
+					console.log(tempArray.length);
 				}
 			}
 			searchResults = tempArray;
@@ -163,13 +176,18 @@
 <div style="position: fixed;top: 0px; left: 0px;width: 100%;height: 120px;background-color: lightyellow;border: 1px solid #333;">
 	<!--button type="button" onclick="javascript: saveData();">SAVE</button>-->
 	
-	Name: <input type="text" id="candidateName" style="width: 200px;" onkeyup="javascript: search();" /><br />
-	Party: <input type="text" id="party" style="width: 200px;" onkeyup="javascript: search();" /><br />
-	<input type="checkbox" id="hasFinancialData" onclick="javascript: search();" value="1" checked="checked" /> <label for="hasFinancialData">Has Financial Data</label><br />
-	<input type="checkbox" id="wasQualified" onclick="javascript: search();" /> <label for="wasQualified">Was FEC Qualified</label><br />
+	Name: <input type="text" id="candidateName" style="width: 200px;" onkeyup="javascript: search();" onchange="javascript: search();" /><br />
+	Party: <input type="text" id="party" style="width: 200px;" onkeyup="javascript: search();" onchange="javascript: search();" /><br />
+	
+	<input type="checkbox" id="wasQualified" onclick="javascript: search();" checked="checked" /> <label for="wasQualified">Was FEC Qualified</label><br />
+	
+	<input type="checkbox" id="partyRep" onclick="javascript: search();" /> <label for="partyRep">Rep</label><br />
+	<input type="checkbox" id="partyDem" onclick="javascript: search();" /> <label for="partyDem">Dem</label><br />
 	<div id="resultCount" style="margin-top: 4px; padding: 4px; border: 1px solid #efefef;"></div>
 </div>
 
+<div id="resultCount"></div>
+<br><br>
 <div id="data" style="margin-top: 120px;width: 600px; height: 80%; overflow: auto; scrollbar-y: show;"></div>
 
 <script type="text/javascript">
