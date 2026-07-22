@@ -11,7 +11,7 @@ h1 {
 }
 
 body {
-	font-family: consolas;
+	font-family: monospace;
 }
 
 .noUnderline {
@@ -44,7 +44,7 @@ body {
 	min-height: 70px;
 	border-top: 1px solid #999;
 	border-bottom: 1px solid #333;
-	font-family: consolas;
+	font-family: monospace;
 	background-color: #fff;
 	text-align: left;
 }
@@ -67,7 +67,7 @@ body {
 	min-height: 70px;
 	border-top: 1px solid #999;
 	border-bottom: 1px solid #333;
-	font-family: consolas;
+	font-family: monospace;
 	background-color: black !important;
 	color: green !important;
 	text-align: left;
@@ -79,7 +79,7 @@ body {
 	min-height: 70px;
 	border-top: 1px solid #999;
 	border-bottom: 1px solid #333;
-	font-family: consolas;
+	font-family: monospace;
 	background-color: black !important;
 	color: white !important;
 	text-align: left;
@@ -437,7 +437,7 @@ p {
 }
 
 .consolas {
-	font-family: consolas;
+	font-family: monospace;
 }
 
 .rightMargin8 {
@@ -478,3 +478,14 @@ p {
 	padding-left: 38px;
 }
 
+.pink {
+	color: pink !important;
+}
+
+.blue {
+	color: lightBlue !important;
+}
+
+.doubleLargeFont {
+	font-size: 2em;
+}
