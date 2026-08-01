@@ -489,3 +489,9 @@ p {
 .doubleLargeFont {
 	font-size: 2em;
 }
+
+.redAlert {
+	background-color: red;
+	color: white;
+	padding: 6px;
+}
