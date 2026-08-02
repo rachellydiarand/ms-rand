@@ -1,0 +1,253 @@
+<html>
+<head>
+	<title>MS RAND | The Oval Office</title>
+	
+	<script type="text/javascript" src="/code/js/dotTrombone.js"></script>
+	
+	<script type="text/javascript">
+		
+		var dg = Math.PI / 180;
+		var rd = 180 / Math.PI;
+		var step = "1";
+		var picture = "1";
+		var image;
+		
+		var images = new Array();
+		images.push("images2/IMG20260720042231.jpg");
+		images.push("images2/fec-president-rand-moth_picture_viewer_image_paste_2026-07-23_23_43_35.jpg");
+		images.push("images2/you-can-write-in-ms-rand-for-senate.jpg");
+		images.push("images2/Oregon-2018-Democratic-Primary-Election.jpg");
+		images.push("images2/you-can-write-in-ms-rand-for-senate.jpg");
+		//images.push("images2/");
+		images.push("images2/IMG20260718095642.jpg");
+		images.push("images2/IMG20260718043351.jpg");
+		images.push("images2/fec-president-rand-moth_picture_viewer_image_paste_2026-07-21_17_45_59.jpg");
+		images.push("images2/IMG20260720043319.jpg");
+		images.push("images2/fec-president-rand-moth_picture_viewer_image_paste_2026-07-25_12_07_20.jpg");
+		images.push("images2/fec-president-rand-Oregon-2024-Democratic-Primary-Election.jpg");
+		
+		
+		
+		/*
+		var imagePreloaders = new Array();
+		
+		function preloadImages() {
+			for(var a = 0; a < images.length; a++) {
+				var img = new Image();
+				img.src = images[a];
+				imagePreloaders.push([img, images[a]]);
+			}
+		}
+		*/
+		
+		function clearCanvas(ctx, w, h) {		
+			ctx.clearRect(0, 0, w, h);		
+		}
+		
+		function drawRedDot(ctx, x, y, radius)
+		{
+			//alert(x, y, radius);
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+			ctx.fillStyle = '#f00';
+			ctx.fill();
+			
+			ctx.lineWidth = 1;
+			ctx.strokeStyle = "#f00";	
+			ctx.stroke();
+		}		
+		
+	
+		function refresh() {
+			document.getElementById('step').value = step;
+			var hRadius1 = 30;
+			var hRadius2 = 30;
+			var vRadius1 = 100;
+			var vRadius2 = 30;
+			var stepSize = 8;// degrees
+			var dotSize = 1;			
+			
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			var ctxW = canvas.width;
+			var ctxH = canvas.height;
+			var xO = ctxW / 2;
+			var yO = ctxH / 2;
+			var degrees = 0;
+			var radius = 0;
+			var diff = 0;
+			var percentage = 0;
+			var hRadius = 0;
+			var vRadius = 0;			
+				
+			clearCanvas(ctx, ctxW, ctxH);
+			
+			if(step == "1") {				
+				hRadius1 = 30;
+				hRadius2 = 30;
+				vRadius1 = 100;
+				vRadius2 = 30;
+				stepSize = 8;// degrees
+				dotSize = 1;				
+			}
+			else if(step == "2") {
+				hRadius1 = 100;
+				hRadius2 = 30;
+				vRadius1 = 30;
+				vRadius2 = 30;
+				stepSize = 8;// degrees
+				dotSize = 1;	
+			}
+			else if(step == "3") {
+				hRadius1 = 100;
+				hRadius2 = 100;
+				vRadius1 = 30;
+				vRadius2 = 30;
+				stepSize = 8;// degrees
+				dotSize = 1;	
+			}
+			else if(step == "4") {
+				hRadius1 = 70;
+				hRadius2 = 70;
+				vRadius1 = 70;
+				vRadius2 = 70;
+				stepSize = 8;// degrees
+				dotSize = 1;	
+			}
+			
+			
+			for(var a = 0; a < 360; a += stepSize) {
+				degrees = a;
+				percentage = 0;
+				if(a > 0) {
+					percentage = a / 360;
+				}					
+				//alert(degrees);
+				console.log(degrees);
+				
+				if(degrees < 90) {
+					//diff = hRadius1 - vRadius1;
+					//radius = hRadius1 - (percentage * diff);// interesting but not what we are looking for
+					//console.log(radius);
+					drawRedDot(ctx, xO + (Math.cos(degrees * dg) * hRadius1), yO - (Math.sin(degrees * dg) * vRadius1), dotSize);
+				}
+				else if(degrees < 180) {
+					//return;
+					//diff = hRadius2 - vRadius1;
+					//radius = hRadius2 - (percentage * diff);
+					drawRedDot(ctx, xO + (Math.cos(degrees * dg) * hRadius2), yO - (Math.sin(degrees * dg) * vRadius1), dotSize);
+				}
+				else if (degrees < 270) {
+					//diff = hRadius2 - vRadius2;
+					//radius = hRadius2 - (percentage * diff);
+					drawRedDot(ctx, xO + (Math.cos(degrees * dg) * hRadius2), yO - (Math.sin(degrees * dg) * vRadius2), dotSize);
+				}
+				else if(degrees < 360) {
+					//diff = hRadius1 - vRadius2;
+					//radius = hRadius1 - (percentage * diff);
+					drawRedDot(ctx, xO + (Math.cos(degrees * dg) * hRadius1), yO - (Math.sin(degrees * dg) * vRadius2), dotSize);
+				}			
+				
+				
+			}			
+			
+		}
+		
+		function refreshPicture() {
+			document.getElementById('picture').value = picture;
+			
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			var ctxW = canvas.width;
+			var ctxH = canvas.height;
+			
+			clearCanvas(ctx, ctxW, ctxH);
+			
+			var file = "";
+			
+			file = images[parseInt(picture) - 1];
+			
+			var image = new Image();			
+			image.onload = function () {
+				//alert(image);
+				var w = image.width;
+				var h = image .height;
+				var nW = w;
+				var nH = h;
+				
+				// best fit, assuming viewer is a square for now
+				if(h > w) {
+					nH = ctxH;
+					nW = (w * nH) / h;
+				}
+				else {
+					nW = ctxW;
+					nH = (h * nW) / w;
+				}
+				ctx.drawImage(image, 0, 0, nW, nH);
+			}
+			
+			//alert(file);
+			image.src = file;
+		}
+		
+		function draw() {
+			var elem = document.getElementById("step");
+			step = elem.value;
+			refresh();
+		}
+		
+		function drawNext() {
+			if(step == "1") {
+				step = "2";
+			} else if(step == "2") {
+				step = "3";
+			} else if(step == "3") {
+				step = "4";
+			} else if(step == "4") {
+				step = "1";
+			}
+			refresh();
+		}
+		
+		function drawPic() {
+			var elem = document.getElementById("picture");
+			picture = elem.value;
+			refreshPicture();
+		}
+		
+		function drawNextPic() {
+			var i = parseInt(picture);
+			if(isNaN(i)) {
+				alert(picture + " is Not a Number!");
+				return;
+			}
+			i++;
+			if(i > images.length) i = 1;
+			picture = "" + i;
+			
+			refreshPicture();
+		}
+		
+		function drawTrombone() {
+			dotTrombone('canvas');
+		}
+				
+		//preloadImages();
+		
+	</script>
+</head>
+
+<body>
+	<canvas id="canvas" width="302" height="302" style="border: 1px solid blue;"></canvas><br><br>
+	
+	<input type="text" id="step" value="1" style="width: 40px;" /> | 
+	<button type="button" onclick="javascript: draw();">GO!!</button> | 
+	<button type="button" onclick="javascript: drawNext();">NEXT!!</button> | 
+	<button type="button" onclick="javascript: drawTrombone();">TROMBONE</button><br>
+	
+	<input type="text" id="picture" value="1" style="width: 40px;" /> | 
+	<button type="button" onclick="javascript: drawPic();">GO!!</button> | 
+	<button type="button" onclick="javascript: drawNextPic();">NEXT!!</button><br>
+</body>
+</html>
