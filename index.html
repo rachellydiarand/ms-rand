@@ -16,13 +16,20 @@
 
 	<link rel="icon" href="favicon.ico?" type="image/x-icon"></link>
 	
-	<link rel="stylesheet" type="text/css" href="clients.css?v=20"></link>
+	<link rel="stylesheet" type="text/css" href="clients.css?v=21"></link>
 		
 	
 	<script type="text/javascript" src="/code/js/reversePostOrder.js"></script>
 	<script type="text/javascript" src="/code/js/rachel_lydia_rand_707.js"></script>
 	
 	<script type="text/javascript">
+		function contructorFunction() {
+			var buttons = document.getElementsByClassName("doingGoodOnPolesButton");
+			for(var a = 0; a < buttons.length; a++) {
+				buttons[a].addEventListener('click', nextDoingGoodOnThePoles);
+				buttons[a].addEventListener('touchup', nextDoingGoodOnThePoles);
+			}
+		}
 		function sidebarClick(n) {
 			if(n == 'home') {
 				window.document.location.href = "#rachel";
@@ -56,6 +63,24 @@
 				alert(err);
 			}
 				
+		}
+		function nextDoingGoodOnThePoles(e) {
+			//console.log(e.target.parentElement);//.parentNode.style);
+			var t = e.target;
+			var elem = t.parentElement;
+			var buttons = document.getElementsByClassName("doingGoodOnPolesButton");
+			for(var a = 0; a < buttons.length; a++) {
+				console.log(a);
+				if(buttons[a] == t) {
+					if(a == buttons.length - 1) {
+						elem = buttons[0].parentElement;
+					}
+					else {
+						elem = buttons[a + 1].parentElement;
+					}
+				}
+			}
+			elem.scrollIntoView('smooth');			
 		}
 	</script>
 	
@@ -526,6 +551,26 @@ My analysis of the 2024 presidential election: <a href="candidates.html"><br>202
 <!-- log -->
 
 <div class='post'>
+<h4>2026-08-03 &nbsp;&nbsp;&nbsp;06:13:33 AM</h4>
+Sarcasm: Only Nazi Fascists don't play big concerts with electricity.<br>
+<br>
+<a target="_rlr" href="/ms-rand/images2/fec-ms-rand-for-president-moth_picture_viewer_image_paste_2026-06-29_21_23_07.jpg"><img src="/ms-rand/images2/fec-ms-rand-for-president-moth_picture_viewer_image_paste_2026-06-29_21_23_07_rlrx-300x162.jpg" class="imageBorder" /></a><br>
+<br>
+<a target="_rlr" href="/ms-rand/images2/fec-ms-rand-for-president-moth_picture_viewer_image_paste_2026-08-03_06_02_14.jpg"><img src="/ms-rand/images2/fec-ms-rand-for-president-moth_picture_viewer_image_paste_2026-08-03_06_02_14_rlrx-300x167.jpg" class="imageBorder" /></a><br>
+<br>
+My signs in Beaverton were still up after 36 hours.  I bascially dedicated a whole day to observe that.  It's one of the difficulties with making these BIG signs with 4 laminated pages per letter.  It's 16 sheets of paper, 16 laminating pouches and 32 zip ties for a 4 letter name.  The time to assemble.  The time to deploy.<br>
+<br>
+All in all though, my technique is awesome!  These ones up and down the metal pole need to get another round the pole in the middle.  They are flapping in the wind.  Still good, just needs that extra bit.  I didn't bother with that yesterday.<br>
+<br>
+Q: Will this be enough to win the election?  Apparently I've only had about 5 daily human visitors to the website were I've been posting daily for 27 years.  Is my music really <i>that</i> bad?<br>
+<br>
+"Do you like the rainbow?  I made it just for you." - GOD in <i>Oh God! You Devil</i><br>
+<br>
+----<br>
+<br>
+The politics I have been working out are massive.  Very disorienting for my personal life.  Do you trust me?  If the gasoline had to suddenly stop, would you be wondering why and what to do next?  Was the gas rationing in the 1970's a good thing?  Remember how we were using the card with the carbon copy at the store?<br></div>
+
+<div class='post'>
 <h4>2026-08-01 &nbsp;&nbsp;&nbsp;19:02:08 PM</h4>
 <a target="_rlr" href="/ms-rand/images2/fec-ms-rand-for-president-IMG20260801075217.jpg"><img src="/ms-rand/images2/fec-ms-rand-for-president-IMG20260801075217_rlrx-300x666.jpg" class="imageBorder" /></a>
 <br /><br />
@@ -541,6 +586,9 @@ My analysis of the 2024 presidential election: <a href="candidates.html"><br>202
 <br /><br />
 <a target="_rlr" href="/ms-rand/images2/fec-ms-rand-for-president-IMG20260801065311.jpg"><img src="/ms-rand/images2/fec-ms-rand-for-president-IMG20260801065311_rlrx-300x135.jpg" class="imageBorder" /></a>
 <br /><br />
+
+<div class="green doingGoodOnPolesButton">Next "Doing good on the poles"</div>
+
 <br />
 
 
@@ -1443,8 +1491,10 @@ People have some strange ideas, no?
 <br /><br />
 <br />
 
+<div class="green doingGoodOnPolesButton">Next "Doing good on the poles"</div><br>
 
-These signs look much, much beeter in real life.  Still kinda small way up on the overpasses but I haven't even been in a car in over a year.
+
+These signs look much, much better in real life.  Still kinda small way up on the overpasses but I haven't even been in a car in over a year.
 <br>
 
 <br>
@@ -2780,5 +2830,10 @@ all rights reserved<br>
 </div><br><br>
 
 	</div><!-- end sidebarOusideContent -->
+	
+<script type="text/javascript">
+	contructorFunction();
+</script>
+
 </body>
 </html>
