@@ -324,6 +324,12 @@ button {
 	padding: 0 4px;
 }
 
+.highlightRed {
+	background-color: red;
+	color: white;
+	padding: 0 4px;
+}
+
 .highlightDark {
 	background-color: yellow;
 	color: black !important;
@@ -494,4 +500,11 @@ p {
 	background-color: red;
 	color: white;
 	padding: 6px;
+}
+
+.doingGoodOnPolesButton {
+	background-color: green;
+	color: white;
+	cursor: pointer;
+	width: 160px;
 }
