@@ -508,3 +508,65 @@ p {
 	cursor: pointer;
 	width: 160px;
 }
+
+.contributionFormLink {
+	color: yellow;
+	font-weight: 900;
+}
+
+.contributionFormHyperlink:link {
+	text-decoration:underline;
+	cursor: pointer;
+	background-color: black;
+	padding: 4px 10px;
+	color: yellow;
+	font-weight: 900;
+	font-size: 2em;
+	font-style: normal;
+}
+
+.contributionFormHyperlink:visited {
+	text-decoration:none;
+	cursor: pointer;
+	background-color: black;
+	padding: 4px 10px;
+	color: #7CFC00;
+	font-weight: 900;
+	font-size: 2em;
+	font-style: normal;
+}
+
+.contributionFormHyperlink:focus {
+	text-decoration:underline;
+	cursor: pointer;
+	background-color: black;
+	padding: 4px 10px;
+	color: yellow;
+	font-weight: 900;
+	font-size: 2em;
+	font-style: normal;
+}
+
+.contributionFormHyperlink:active {
+	text-decoration:underline;
+	cursor: pointer;
+	background-color: black;
+	padding: 4px 10px;
+	color: yellow;
+	font-weight: 900;
+	font-size: 2em;
+	font-style: italic;
+}
+
+
+.contributionFormHyperlink:hover {
+	text-decoration:underline;
+	cursor: pointer;
+	background-color: black;
+	padding: 4px 10px;
+	color: yellow;
+	font-weight: 900;
+	font-size: 2em;
+	font-style: italic;
+}
+
